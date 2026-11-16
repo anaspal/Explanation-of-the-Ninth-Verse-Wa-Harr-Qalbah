@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>شرح البيت التاسع – وَاحَرَّ قَلْبَاهُ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<meta name="description" content="شرح البيت التاسع من قصيدة «وَاحَرَّ قَلْبَاهُ» لأبي الطيب المتنبي">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap">
+<style>
+:root{
+  --night:#17112e; --deep:#2b1d52; --plum:#7b3a86; --pink:#c4338c; --moon:#f4ead0; --gold:#e2b45c;
+  --paper:#f8f4ec; --ink:#241c33; --soft:#6a5f7a;
+  --head:'Amiri','Traditional Arabic','Times New Roman',serif;
+  --body:'Tajawal','Segoe UI',Tahoma,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;background:var(--paper)}
+:root:fullscreen,:root:-webkit-full-screen{background:var(--paper);width:100%}
+::backdrop{background:var(--paper)}
+::selection{background:var(--gold);color:var(--night)}
+body{overflow-x:hidden;font-family:var(--body);background:var(--paper);color:var(--ink);line-height:1.95;font-size:18px}
+
+/* ---------- Hero ---------- */
+.hero{background:radial-gradient(circle at 50% 0,var(--deep),var(--night) 70%);color:var(--moon);text-align:center;padding:60px 20px 140px;position:relative;overflow:hidden}
+.hero{min-height:calc(100vh + 80px);min-height:calc(100dvh + 80px);display:flex;flex-direction:column;justify-content:center;align-items:center}
+.hero>.verse{width:100%}
+.hero::before{content:"";position:absolute;inset:0;opacity:.5;background-image:radial-gradient(1.5px 1.5px at 12% 20%,#fff,transparent),radial-gradient(1.5px 1.5px at 78% 14%,#fff,transparent),radial-gradient(1px 1px at 30% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 90% 55%,#fff,transparent),radial-gradient(1px 1px at 55% 35%,#fff,transparent),radial-gradient(1px 1px at 6% 78%,#fff,transparent),radial-gradient(1.5px 1.5px at 66% 80%,#fff,transparent)}
+.hero>*{position:relative}
+.crescent{width:84px;height:84px;margin:0 auto 22px;border-radius:50%;box-shadow:inset -22px 8px 0 0 var(--moon),0 0 60px 6px rgba(244,234,208,.25);animation:glow 5s ease-in-out infinite alternate;will-change:opacity}
+@keyframes glow{from{opacity:.85}to{opacity:1}}
+.hero h1{font-family:var(--head);font-size:clamp(38px,8vw,68px);line-height:1.4;font-weight:700}
+.hero .sub{font-size:19px;opacity:.85;margin-top:2px}
+.verse{max-width:1040px;margin:32px auto 0;font-family:var(--head);font-size:clamp(20px,3vw,30px);line-height:2.1;padding:18px 26px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(226,180,92,.35);display:flex;flex-wrap:wrap;justify-content:center;gap:0 .6em}
+.verse span{white-space:nowrap}
+.verse em{font-style:normal;color:#ff7cc4}
+.poet{margin-top:14px;font-size:17px;color:var(--gold)}
+.credits{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px;font-size:16px}
+.credits div{padding:9px 20px;border-radius:40px;background:rgba(244,234,208,.12)}
+.credits b{color:var(--gold);font-weight:500;margin-inline-end:6px}
+.wave{position:absolute;bottom:-1px;left:0;width:100%;height:80px;display:block}
+
+/* ---------- Flow ---------- */
+.flow{position:relative;max-width:980px;margin:0 auto;padding:30px 18px 60px}
+.river{position:absolute;top:0;bottom:0;right:50%;width:6px;margin-right:-3px;background:#e2d9e6;border-radius:6px}
+.river i{position:absolute;top:0;right:0;width:100%;height:0;background:linear-gradient(var(--plum),var(--gold));border-radius:6px}
+.step{position:relative;width:50%;padding:18px 0}
+.step:nth-child(odd){margin-right:50%;padding-right:46px;padding-left:0}
+.step:nth-child(even){margin-right:0;padding-left:46px}
+.node{position:absolute;top:34px;width:44px;height:44px;border-radius:50%;background:var(--paper);border:4px solid var(--gold);display:grid;place-items:center;z-index:2;transition:background .4s,transform .4s}
+.step:nth-child(odd) .node{right:-22px}
+.step:nth-child(even) .node{left:-22px}
+.node svg{width:22px;height:22px;fill:none;stroke:var(--deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.step.on .node{background:var(--gold);transform:scale(1.12)}
+.card{background:#fff;border-radius:26px;padding:24px 26px;box-shadow:0 10px 30px rgba(43,29,82,.1);border-top:5px solid var(--plum)}
+.step:nth-child(even) .card{border-top-color:var(--gold)}
+.card h2{font-family:var(--head);font-size:27px;color:var(--deep);line-height:1.5;margin-bottom:6px}
+.card ul{padding-right:22px;margin-top:4px}
+.card li{margin:4px 0}
+.card li::marker{color:var(--pink)}
+.tag{display:inline-block;background:#f4e8f2;color:var(--deep);border-radius:12px;padding:0 10px;font-weight:500}
+.sim{border-right:4px solid var(--pink);background:#fbf3f8;border-radius:6px 16px 16px 6px;padding:12px 16px;margin-top:12px}
+.sim h3{font-family:var(--head);font-size:21px;color:var(--deep)}
+.full{width:100%!important;margin:0!important;padding:18px 0!important}
+.full .node{right:50%!important;left:auto!important;margin-right:-22px;top:-4px}
+.full .card{margin-top:44px;text-align:center}
+.full .card ul{display:inline-block;text-align:right}
+
+.vocab{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(210px,100%),1fr));gap:10px;margin-top:12px;text-align:right}
+.vocab div{background:#f6eff6;border-radius:14px;padding:8px 14px;line-height:1.7}
+.vocab b{font-family:var(--head);font-size:20px;color:var(--plum);display:block}
+.qa{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px;margin-top:12px;text-align:right}
+.qa div{background:#f6eff6;border-radius:16px;padding:12px 16px;line-height:1.8}
+.qa b{font-family:var(--head);font-size:20px;color:var(--pink);display:block;line-height:1.9;padding-top:3px;unicode-bidi:plaintext;overflow:visible}
+
+.facts div{background:#f6eff6;border-radius:14px;padding:8px 14px;line-height:1.7}
+.facts b{font-family:var(--head);font-size:19px;color:var(--plum);display:block}
+.ctx{font-family:var(--head);font-size:21px;line-height:2;background:#fbf3f8;border-radius:16px;padding:10px 16px;margin-top:12px;text-align:center}
+.ctx .me{color:var(--pink);font-weight:700}
+.sum li{margin:8px 0}
+footer{background:var(--night);color:var(--moon);text-align:center;padding:44px 20px;font-size:17px;line-height:2.2}
+footer .big{font-family:var(--head);font-size:26px;color:var(--gold)}
+
+@media(max-width:760px){
+  body{font-size:17px}
+  .verse{gap:0}
+  .verse span{white-space:normal}
+  .card{padding:20px 16px}
+  .card h2{font-size:23px}
+  .river{right:41px;margin-right:0}
+  .step,.step:nth-child(odd),.step:nth-child(even){width:100%;margin:0;padding:14px 62px 14px 0}
+  .step .node,.step:nth-child(odd) .node,.step:nth-child(even) .node{right:4px;left:auto}
+  .full .node{right:4px!important;margin-right:0;top:34px}
+  .full .card{margin-top:0}
+  .full{padding:14px 62px 14px 0!important}
+}
+@media(prefers-reduced-motion:reduce){.crescent{animation:none}html{scroll-behavior:auto}}
+
+/* ---------- Visual enhancements (desktop only) ---------- */
+@media(min-width:761px){
+body{background:linear-gradient(180deg,var(--paper),#f1e9f1 60%,var(--paper))}
+#bar{position:fixed;top:0;right:0;height:4px;width:0;z-index:99;background:linear-gradient(270deg,var(--gold),var(--pink),var(--plum));box-shadow:0 0 12px var(--pink)}
+#stars{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.hero>*:not(#stars){z-index:1}
+.hero{background:radial-gradient(circle at 50% 0,#3c2670,var(--night) 70%)}
+.crescent{animation:glow 4s ease-in-out infinite alternate,floaty 6s ease-in-out infinite}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(-4deg)}50%{transform:translateY(-10px) rotate(4deg)}}
+/* إصلاح قص الحركات (التشكيل) في العنوان: توسيع منطقة الخلفية مع تعويض الهامش */
+.hero h1{padding:.3em .15em .15em;margin:-.3em 0 -.15em}
+/* تفاصيل الهلال: هالة أقوى + فوهات + حركة */
+.crescent{box-shadow:inset -22px 8px 0 0 var(--moon),0 0 40px 8px rgba(244,234,208,.35),0 0 90px 24px rgba(226,180,92,.22),0 0 160px 50px rgba(196,51,140,.14);animation:glow 4s ease-in-out infinite alternate,floaty 6s ease-in-out infinite,halo 5s ease-in-out infinite alternate}
+@keyframes halo{from{box-shadow:inset -22px 8px 0 0 var(--moon),0 0 40px 8px rgba(244,234,208,.28),0 0 90px 24px rgba(226,180,92,.16),0 0 160px 50px rgba(196,51,140,.10)}to{box-shadow:inset -22px 8px 0 0 var(--moon),0 0 52px 12px rgba(244,234,208,.45),0 0 110px 32px rgba(226,180,92,.30),0 0 180px 60px rgba(196,51,140,.18)}}
+.crescent::before,.crescent::after{content:"";position:absolute;border-radius:50%;background:rgba(170,135,80,.38);box-shadow:inset 1.5px 1.5px 2px rgba(90,60,20,.45)}
+.crescent::before{width:8px;height:8px;left:66px;top:26px}
+.crescent::after{width:5px;height:5px;left:69.5px;top:43.5px;box-shadow:inset 1px 1px 1.5px rgba(90,60,20,.45),-4px 15px 0 -.5px rgba(170,135,80,.38)}
+.hero h1{background:linear-gradient(100deg,var(--moon) 20%,var(--gold) 45%,#fff 55%,var(--gold) 65%,var(--moon) 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;animation:shine 6s linear infinite;text-shadow:none;filter:drop-shadow(0 4px 18px rgba(226,180,92,.35))}
+@keyframes shine{from{background-position:120% 0}to{background-position:-130% 0}}
+.hero .sub,.poet,.credits,.verse{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero .sub{animation-delay:.15s}.verse{animation-delay:.3s}.poet{animation-delay:.5s}.credits{animation-delay:.65s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.verse{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 12px 40px rgba(0,0,0,.35),inset 0 0 30px rgba(226,180,92,.08);transition:transform .4s,border-color .4s}
+.verse:hover{transform:scale(1.015);border-color:rgba(226,180,92,.8)}
+.verse em{text-shadow:0 0 14px rgba(255,124,196,.7);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{50%{text-shadow:0 0 26px rgba(255,124,196,1)}}
+.credits div{border:1px solid rgba(226,180,92,.25);backdrop-filter:blur(6px);transition:transform .3s,background .3s}
+.credits div:hover{transform:translateY(-3px);background:rgba(226,180,92,.2)}
+
+.river{background:linear-gradient(#e6dcea,#efe6ee)}
+.river i{box-shadow:0 0 14px rgba(196,51,140,.55)}
+.card{position:relative;overflow:hidden;border:1px solid rgba(123,58,134,.08);border-top-width:5px;
+  opacity:0;transform:translateX(60px) scale(.96);
+  transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.step:nth-child(even) .card{transform:translateX(-60px) scale(.96)}
+.step.full .card{transform:translateY(40px) scale(.96)}
+.step.seen .card{opacity:1;transform:none}
+.step.seen .card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(43,29,82,.2)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;
+  background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(226,180,92,.2),transparent 60%)}
+.card:hover::after{opacity:1}
+.card h2{position:relative;display:inline-block}
+.card h2::after{content:"";display:block;height:3px;width:0;margin-top:2px;border-radius:3px;background:linear-gradient(270deg,var(--pink),var(--gold));transition:width .9s .3s}
+.step.seen .card h2::after{width:100%}
+.node{box-shadow:0 4px 14px rgba(43,29,82,.18)}
+.step.on .node{box-shadow:0 0 0 0 rgba(226,180,92,.6);animation:ring 2.2s infinite}
+@keyframes ring{70%{box-shadow:0 0 0 16px rgba(226,180,92,0)}100%{box-shadow:0 0 0 0 rgba(226,180,92,0)}}
+.step.on .node svg{animation:tick .6s ease-out}
+@keyframes tick{from{transform:scale(0) rotate(-40deg)}to{transform:none}}
+.card li{transition:transform .25s}
+.card li:hover{transform:translateX(-6px)}
+.tag{background:linear-gradient(135deg,#f6e6f1,#f3e6d2);box-shadow:0 2px 6px rgba(123,58,134,.12)}
+.sim{transition:transform .3s,box-shadow .3s}
+.sim:hover{transform:translateX(-5px);box-shadow:0 8px 20px rgba(196,51,140,.15)}
+.vocab div,.qa div,.facts div{border:1px solid transparent;transition:transform .3s,box-shadow .3s,border-color .3s,background .3s}
+.vocab div:hover,.qa div:hover,.facts div:hover{transform:translateY(-4px);box-shadow:0 10px 22px rgba(123,58,134,.16);border-color:rgba(226,180,92,.6);background:#fff}
+.ctx{border:1px dashed rgba(196,51,140,.35)}
+.ctx .me{background:linear-gradient(transparent 62%,rgba(226,180,92,.55) 62%);padding:0 4px;border-radius:4px}
+footer{background:radial-gradient(circle at 50% 0,#3c2670,var(--night) 75%);position:relative}
+footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
+@media(prefers-reduced-motion:reduce){
+  .card,.step:nth-child(even) .card,.step.full .card{opacity:1;transform:none;transition:none}
+  .hero h1,.hero .sub,.verse,.poet,.credits,.crescent,.verse em,.step.on .node{animation:none}
+  .hero h1{background-position:50% 0}
+}
+}
+/* ---------- Back to top (all screens) ---------- */
+#top{position:fixed;bottom:22px;left:22px;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;z-index:90;
+  background:linear-gradient(135deg,var(--plum),var(--pink));box-shadow:0 8px 22px rgba(196,51,140,.45);display:grid;place-items:center;
+  opacity:0;transform:translateY(20px) scale(.8);pointer-events:none;transition:.35s}
+#top.show{opacity:1;transform:none;pointer-events:auto}
+#top:hover{transform:translateY(-4px) scale(1.08)}
+#top svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:760px){#bar,#stars{display:none}}
+</style>
+</head>
+<body>
+<div id="bar" aria-hidden="true"></div>
+<button id="top" aria-label="العودة للأعلى" title="العودة للأعلى"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+
+<header class="hero">
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="crescent" aria-hidden="true"></div>
+  <h1>وَاحَرَّ قَلْبَاهُ</h1>
+  <p class="sub">شرح البيت التاسع</p>
+  <div class="verse">
+    <span>أَنامُ مِلءَ جُفوني عَن <em>شَوارِدِها</em></span>
+    <span>وَيَسهَرُ الخَلقُ جَرّاها وَيَختَصِمُ</span>
+  </div>
+  <div class="poet">أبو الطيّب المتنبي</div>
+  <div class="credits">
+    <div><b>إعداد:</b> أنس نهاد محمود الجعل</div>
+    <div><b>بإشراف:</b> أ. حُسُن خليل أحمد شلش</div>
+  </div>
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path fill="#f8f4ec" d="M0 40c240 50 480 50 720 20s480-40 720 0v20H0z"/></svg>
+</header>
+
+<main class="flow" id="flow">
+  <div class="river" aria-hidden="true"><i id="fill"></i></div>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,3 14.8,9 21,9.7 16.3,14 17.8,20.5 12,17 6.2,20.5 7.7,14 3,9.7 9.2,9"/></svg></div>
+    <div class="card">
+      <h2>أولًا: المعنى الإجمالي للبيت</h2>
+      <p>يعبّر الشاعر عن اعتزازه بشعره وافتخاره بقدرته الأدبية، فيقول إنه ينام مرتاحًا مطمئنًا بعد تأليف قصائده، بينما ينشغل الناس بشعره، ويسهرون في محاولة فهم معانيه العميقة المبتكرة، ويتجادلون ويتناقشون حولها؛ مما يدل على تميز شعره وقوة أفكاره وبلاغة أسلوبه.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6a2 2 0 0 1 2 2v12a2 2 0 0 0-2-2H4z M20 5h-6a2 2 0 0 0-2 2v12a2 2 0 0 1 2-2h6z"/></svg></div>
+    <div class="card">
+      <h2>ثانيًا: الشرح التفصيلي للشطرين</h2>
+      <div class="sim">
+        <h3>الشطر الأول: «أَنامُ مِلءَ جُفوني عَن شَوارِدِها»</h3>
+        <p>ينام الشاعر نومًا عميقًا مطمئنًا دون قلق أو انشغال بال، لأنه واثق من جودة شعره وتميز معانيه المبتكرة، التي تحتاج إلى تأمل وتفكير لفهمها. ويشير بذلك إلى قدرته على ابتكار أفكار شعرية يصعب على غيره الإتيان بمثلها.</p>
+      </div>
+      <div class="sim">
+        <h3>الشطر الثاني: «وَيَسهَرُ الخَلقُ جَرّاها وَيَختَصِمُ»</h3>
+        <p>ينشغل الناس بشعره، فيبقون ساهرين في محاولة فهم معانيه وتفسيرها، ثم يتجادلون فيما بينهم حول المقصود منها، فيختلف كل منهم عن الآخر في فهمها. وهذا دليل على عمق شعره وقوة أثره في الناس.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step full">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4v16H5z M11 4h4v16h-4z M17.5 5l3.5 1-3.5 14-3.5-1z"/></svg></div>
+    <div class="card">
+      <h2>ثالثًا: معاني المفردات والتراكيب</h2>
+      <div class="vocab">
+        <div><b>أَنامُ</b>أخلد إلى النوم.</div>
+        <div><b>مِلءَ جُفوني</b>نومًا عميقًا مطمئنًا، نومًا هانئًا حتى الامتلاء.</div>
+        <div><b>جُفوني</b>أجفان عيني.</div>
+        <div><b>شَوارِدِها</b>معانيها المبتكرة.</div>
+        <div><b>الخَلقُ</b>الناس.</div>
+        <div><b>جَرّاها</b>بسببها.</div>
+        <div><b>يَختَصِمُ</b>يتجادل ويتنازع في الرأي.</div>
+        <div><b>يَسهَرُ</b>يبقى ساهرًا دون نوم؛ مضادها: يَنام.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+    <div class="card">
+      <h2>رابعًا: الصور الجمالية والبلاغية</h2>
+      <div class="sim">
+        <h3>«أَنامُ مِلءَ جُفوني»</h3>
+        <p>كناية عن راحة البال والاطمئنان والثقة بالنفس.</p>
+      </div>
+      <div class="sim">
+        <h3>«يَسهَرُ الخَلقُ جَرّاها»</h3>
+        <p>تعبير يصوّر شدة انشغال الناس بشعره حتى يحرمهم النوم.</p>
+      </div>
+      <div class="sim">
+        <h3>«يَختَصِمُ»</h3>
+        <p>يدل على كثرة الجدال والاختلاف حول معاني شعره؛ فكل واحد يفهمها على وجه.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div>
+    <div class="card">
+      <h2>خامسًا: المحسنات البديعية</h2>
+      <p><span class="tag">الطباق الإيجابي</span> بين «أَنامُ» و«يَسهَرُ».</p>
+      <p>جمع الشاعر بين كلمتين متضادتين؛ لإبراز المفارقة بين حاله المطمئنة وحال الناس المنشغلين بشعره.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 3 3L8 19z M14 7l3 3"/></svg></div>
+    <div class="card">
+      <h2>سادسًا: الأساليب اللغوية</h2>
+      <ul>
+        <li><span class="tag">«أَنامُ»</span> أسلوب خبري يفيد الإخبار عن حال الشاعر.</li>
+        <li><span class="tag">«وَيَسهَرُ الخَلقُ جَرّاها وَيَختَصِمُ»</span> أسلوب خبري يصوّر أثر شعره في الناس.</li>
+        <li><span class="tag">الأفعال المضارعة</span> «أنامُ، يَسهَرُ، يَختَصِمُ» تدل على التجدد والاستمرار، وتُصوّر تكرار حالة الشاعر في النوم وحالة الناس في السهر والانشغال بشعره.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5C5 16 2.5 12.5 2.5 9A4.5 4.5 0 0 1 12 6.8 4.5 4.5 0 0 1 21.5 9c0 3.5-2.5 7-9.5 11.5z"/></svg></div>
+    <div class="card">
+      <h2>سابعًا: العاطفة المسيطرة</h2>
+      <p>الفخر والاعتزاز بالنفس والثقة بالموهبة الشعرية، مع الإعجاب بتميز شعره وعمق معانيه.</p>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6 M10 21h4 M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></div>
+    <div class="card">
+      <h2>ثامنًا: القيم والدروس المستفادة</h2>
+      <ul>
+        <li>الثقة بالنفس والاعتزاز بالقدرات والمواهب.</li>
+        <li>أهمية الإبداع والتميز في الأدب.</li>
+        <li>أن الأعمال المتميزة تثير التفكير والنقاش.</li>
+        <li>قيمة الشعر العميق الذي يحمل معاني وأفكارًا متعددة.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div>
+    <div class="card">
+      <h2>تاسعًا: خلاصة سريعة</h2>
+      <ul class="sum">
+        <li><span class="tag">الفكرة</span> يفتخر المتنبي بتميز شعره وعمق معانيه التي تشغل الناس وتدفعهم إلى التفكير والنقاش.</li>
+        <li><span class="tag">الصورة الجمالية</span> كناية «أنام ملء جفوني» عن راحة البال والثقة بالنفس.</li>
+        <li><span class="tag">المحسن البديعي</span> طباق إيجابي بين «أنام» و«يسهر».</li>
+        <li><span class="tag">العاطفة</span> الفخر والاعتزاز بالنفس والموهبة الشعرية.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="step full">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7 M12 17h.01"/></svg></div>
+    <div class="card">
+      <h2>عاشرًا: أسئلة المناقشة</h2>
+      <div class="qa">
+        <div><b>1. بِمَ يفتخر المتنبي في البيت؟</b>يفتخر بتميز شعره وعمق معانيه، وانشغال الناس بمحاولة فهمها وتفسيرها.</div>
+        <div><b>2. لماذا جمع الشاعر بين النوم والسهر؟</b>ليبرز المفارقة بين راحته واطمئنانه إلى شعره، وبين سهر الناس في معانيه ومحاولتهم فهمها.</div>
+        <div><b>3. ما الجمال في قوله «أَنامُ مِلءَ جُفوني»؟</b>كناية عن راحة البال والثقة بالنفس.</div>
+        <div><b>4. ما المحسن البديعي في البيت؟</b>طباق إيجابي بين «أَنامُ» و«يَسهَرُ»، يُبرز المفارقة بين حاله وحال الناس.</div>
+        <div><b>5. ما دلالة قوله «وَيَختَصِمُ»؟</b>يدل على كثرة اختلاف الناس وجدالهم حول معاني شعره.</div>
+        <div><b>6. ما الفكرة التي يريد الشاعر إيصالها؟</b>إبراز تفوقه الشعري وعمق معانيه التي تشغل الناس وتدفعهم إلى التفكير والنقاش.</div>
+        <div><b>7. ما دلالة الأفعال المضارعة في البيت؟</b>تدل على استحضار المشهد وتصويره بصورة متجددة، وتوحي باستمرار انشغال الناس بشعره.</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="big">شكرًا لحسن استماعكم</div>
+  إعداد: أنس نهاد محمود الجعل<br>
+  بإشراف: أ. حُسُن خليل أحمد شلش
+</footer>
+
+<script>
+(function(){
+  var flow=document.getElementById('flow'),fill=document.getElementById('fill'),
+      steps=[].slice.call(document.querySelectorAll('.step'));
+  function update(){
+    var r=flow.getBoundingClientRect(),mid=window.innerHeight*0.55;
+    var h=Math.max(0,Math.min(r.height,mid-r.top));
+    fill.style.height=h+'px';
+    steps.forEach(function(s){
+      var n=s.querySelector('.node').getBoundingClientRect();
+      s.classList.toggle('on',n.top+22<mid);
+    });
+  }
+  window.addEventListener('scroll',update,{passive:true});
+  window.addEventListener('resize',update);
+  update();
+  function toggleFS(){
+    var d=document,el=d.documentElement;
+    var cur=d.fullscreenElement||d.webkitFullscreenElement;
+    try{
+      if(cur){(d.exitFullscreen||d.webkitExitFullscreen).call(d);}
+      else{
+        var p=(el.requestFullscreen||el.webkitRequestFullscreen).call(el);
+        if(p&&p.catch){p.catch(function(){});}
+      }
+    }catch(err){}
+  }
+  document.addEventListener('keydown',function(e){
+    if(e.ctrlKey||e.metaKey||e.altKey){return;}
+    if(e.key==='f'||e.key==='F'||e.key==='ب'){toggleFS();}
+  });
+})();
+</script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,mobile=matchMedia('(max-width:760px)').matches;
+  var bar=document.getElementById('bar'),top=document.getElementById('top');
+  function prog(){
+    var h=document.documentElement.scrollHeight-innerHeight,y=scrollY||document.documentElement.scrollTop;
+    bar.style.width=(h>0?y/h*100:0)+'%';
+    top.classList.toggle('show',y>500);
+  }
+  addEventListener('scroll',prog,{passive:true});prog();
+  top.addEventListener('click',function(){scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+
+  var steps=[].slice.call(document.querySelectorAll('.step'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    steps.forEach(function(s){io.observe(s);});
+  }else{steps.forEach(function(s){s.classList.add('seen');});}
+
+  [].slice.call(document.querySelectorAll('.card')).forEach(function(c){
+    c.addEventListener('pointermove',function(e){
+      var r=c.getBoundingClientRect();
+      c.style.setProperty('--mx',(e.clientX-r.left)+'px');
+      c.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+
+  var cv=document.getElementById('stars');
+  if(cv&&cv.getContext&&!reduce&&!mobile){
+    var ctx=cv.getContext('2d'),W,H,stars=[],shoot=null,run=true;
+    function size(){
+      var d=Math.min(devicePixelRatio||1,2),r=cv.parentNode.getBoundingClientRect();
+      W=r.width;H=r.height;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+      var n=Math.round(W*H/9000);stars=[];
+      for(var i=0;i<n;i++)stars.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.3,p:Math.random()*6.28,v:Math.random()*.03+.01});
+    }
+    function draw(){
+      if(!run){return;}
+      ctx.clearRect(0,0,W,H);
+      stars.forEach(function(s){
+        s.p+=s.v;
+        ctx.globalAlpha=.25+.75*Math.abs(Math.sin(s.p));
+        ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,6.28);ctx.fill();
+      });
+      if(!shoot&&Math.random()<.004){shoot={x:Math.random()*W*.8+W*.2,y:Math.random()*H*.3,l:0};}
+      if(shoot){
+        var g=ctx.createLinearGradient(shoot.x,shoot.y,shoot.x+shoot.l*.7,shoot.y-shoot.l*.35);
+        g.addColorStop(0,'rgba(255,255,255,.95)');g.addColorStop(1,'rgba(255,255,255,0)');
+        ctx.globalAlpha=1;ctx.strokeStyle=g;ctx.lineWidth=2;ctx.beginPath();
+        ctx.moveTo(shoot.x,shoot.y);ctx.lineTo(shoot.x+shoot.l*.7,shoot.y-shoot.l*.35);ctx.stroke();
+        shoot.x-=9;shoot.y+=4.5;shoot.l+=4;
+        if(shoot.x<-100||shoot.y>H){shoot=null;}
+      }
+      requestAnimationFrame(draw);
+    }
+    size();draw();
+    addEventListener('resize',size);
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(e){
+        var v=e[0].isIntersecting;
+        if(v&&!run){run=true;requestAnimationFrame(draw);}else if(!v){run=false;}
+      }).observe(cv.parentNode);
+    }
+  }
+})();
+</script>
+</body>
+</html>
