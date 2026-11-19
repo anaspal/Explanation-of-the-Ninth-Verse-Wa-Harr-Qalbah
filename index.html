@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <meta name="description" content="شرح البيت التاسع من قصيدة «وَاحَرَّ قَلْبَاهُ» لأبي الطيب المتنبي">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Tajawal:wght@400;500;700&display=swap">
 <style>
 :root{
   --night:#17112e; --deep:#2b1d52; --plum:#7b3a86; --pink:#c4338c; --moon:#f4ead0; --gold:#e2b45c;
@@ -171,11 +171,189 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
 #top:hover{transform:translateY(-4px) scale(1.08)}
 #top svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 @media(max-width:760px){#bar,#stars{display:none}}
+
+/* ---------- Glassmorphism ---------- */
+:root{--glass:rgba(255,255,255,.38);--glass-strong:rgba(255,255,255,.6);--glass-line:rgba(255,255,255,.75);--glass-shadow:0 8px 32px rgba(43,29,82,.16)}
+body{background:transparent}
+body::before{content:"";position:fixed;inset:0;z-index:-2;
+  background:
+    radial-gradient(50% 40% at 85% 8%,rgba(196,51,140,.38),transparent 70%),
+    radial-gradient(45% 40% at 10% 30%,rgba(123,58,134,.34),transparent 70%),
+    radial-gradient(45% 40% at 90% 62%,rgba(226,180,92,.42),transparent 70%),
+    radial-gradient(50% 45% at 15% 92%,rgba(90,120,220,.30),transparent 70%),
+    linear-gradient(160deg,#f3e9f8,#f9eef3 50%,#f4eadb)}
+body::after{content:"";position:fixed;z-index:-1;width:46vmax;height:46vmax;top:18%;left:-12vmax;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle at 35% 35%,rgba(196,51,140,.30),rgba(123,58,134,.18) 55%,transparent 72%);filter:blur(30px)}
+@media(min-width:761px) and (prefers-reduced-motion:no-preference){
+  body::after{animation:orb 22s ease-in-out infinite alternate}
+  @keyframes orb{from{transform:translate(0,0)}to{transform:translate(70vw,40vh)}}
+}
+.hero{position:relative}
+.verse{background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.32);
+  -webkit-backdrop-filter:blur(18px) saturate(160%);backdrop-filter:blur(18px) saturate(160%);
+  box-shadow:0 12px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.35)}
+.credits div{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.river{background:rgba(255,255,255,.55);border:1px solid var(--glass-line);box-shadow:inset 0 1px 3px rgba(43,29,82,.12)}
+.node{background:var(--glass-strong);border:2px solid var(--glass-line);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:var(--glass-shadow),inset 0 1px 0 #fff}
+.step.on .node{background:rgba(226,180,92,.7);border-color:rgba(255,255,255,.9)}
+.card{position:relative;background:linear-gradient(135deg,rgba(255,255,255,.62),rgba(255,255,255,.28));
+  border:1px solid var(--glass-line);border-top:4px solid rgba(123,58,134,.7);
+  -webkit-backdrop-filter:blur(20px) saturate(170%);backdrop-filter:blur(20px) saturate(170%);
+  box-shadow:var(--glass-shadow),inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 0 rgba(255,255,255,.25)}
+.step:nth-child(even) .card{border-top-color:rgba(226,180,92,.95)}
+.step.seen .card:hover{box-shadow:0 22px 50px rgba(43,29,82,.22),inset 0 1px 0 #fff}
+.sim,.ctx,.vocab div,.qa div,.facts div{background:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.7);box-shadow:inset 0 1px 0 rgba(255,255,255,.8)}
+.sim{border-right:4px solid var(--pink)}
+.ctx{border:1px solid rgba(255,255,255,.7)}
+.tag{background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.8);box-shadow:0 2px 8px rgba(123,58,134,.12)}
+.vocab div:hover,.qa div:hover,.facts div:hover{background:rgba(255,255,255,.78);border-color:rgba(226,180,92,.7)}
+#top{background:rgba(255,255,255,.35);border:1px solid rgba(255,255,255,.8);
+  -webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);
+  box-shadow:var(--glass-shadow),inset 0 1px 0 #fff}
+#top svg{stroke:var(--deep)}
+footer{border-top:1px solid rgba(255,255,255,.25);box-shadow:inset 0 1px 0 rgba(255,255,255,.2)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .card{background:rgba(255,255,255,.9)}.node{background:#fff}#top{background:rgba(255,255,255,.9)}
+}
+
+/* ---------- Seamless hero curve: cut the curve out of the hero so the page background shows through ---------- */
+@supports ((-webkit-mask-image:none) or (mask-image:none)){
+  .wave{display:none}
+  .hero{
+    -webkit-mask:linear-gradient(#000,#000) 0 0/100% calc(100% - 79px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V60C1200 20 960 30 720 60C480 90 240 90 0 40Z'/%3E%3C/svg%3E") 0 100%/100% 80px no-repeat;
+    mask:linear-gradient(#000,#000) 0 0/100% calc(100% - 79px) no-repeat,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'%3E%3Cpath d='M0 0H1440V60C1200 20 960 30 720 60C480 90 240 90 0 40Z'/%3E%3C/svg%3E") 0 100%/100% 80px no-repeat;
+  }
+}
+
+/* ---------- Hero: original night-purple background; verse box + credits keep the current teal glass look ---------- */
+.hero{background:radial-gradient(circle at 50% 0,#2b1d52,#17112e 70%)}
+.crescent{box-shadow:inset -22px 8px 0 0 #f4ead0,0 0 60px 6px rgba(244,234,208,.25)}
+@media(min-width:761px){
+  .hero{background:radial-gradient(circle at 50% 0,#3c2670,#17112e 70%)}
+  .crescent{box-shadow:inset -22px 8px 0 0 #f4ead0,0 0 40px 8px rgba(244,234,208,.35),0 0 90px 24px rgba(226,180,92,.22),0 0 160px 50px rgba(196,51,140,.14)}
+  @keyframes halo{from{box-shadow:inset -22px 8px 0 0 #f4ead0,0 0 40px 8px rgba(244,234,208,.28),0 0 90px 24px rgba(226,180,92,.16),0 0 160px 50px rgba(196,51,140,.10)}to{box-shadow:inset -22px 8px 0 0 #f4ead0,0 0 52px 12px rgba(244,234,208,.45),0 0 110px 32px rgba(226,180,92,.30),0 0 180px 60px rgba(196,51,140,.18)}}
+}
+.verse{background:linear-gradient(135deg,rgba(42,128,120,.80),rgba(20,100,96,.80));border:1px solid rgba(255,255,255,.32);
+  box-shadow:0 12px 40px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.3)}
+.credits div{background:rgba(58,105,101,.82);border:1px solid rgba(255,255,255,.30);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+
+/* ---------- Moon: earthshine on the dark side + faint full-disc outline + more craters ---------- */
+.crescent{
+  background:radial-gradient(circle at 36% 44%,rgba(170,190,215,.18),rgba(244,234,208,.06) 62%,transparent 76%);
+  outline:1px solid rgba(244,234,208,.16)}
+@media(min-width:761px){
+  .crescent::before{box-shadow:inset 1.5px 1.5px 2px rgba(90,60,20,.45),
+    -8px -14px 0 -1.5px rgba(170,135,80,.34),
+    6px 8px 0 -2.5px rgba(170,135,80,.30),
+    5px 26px 0 -2.5px rgba(170,135,80,.30),
+    -4px 42px 0 -2px rgba(170,135,80,.34)}
+}
+
+/* ---------- Footer typography ---------- */
+footer .big{font-family:'Aref Ruqaa','Amiri','Traditional Arabic',serif;font-weight:700;font-size:clamp(34px,6vw,50px);line-height:1.6;
+  background:linear-gradient(100deg,#f6e3a8,var(--gold) 45%,#fff4cf 60%,var(--gold));-webkit-background-clip:text;background-clip:text;
+  color:transparent;-webkit-text-fill-color:transparent;filter:drop-shadow(0 2px 14px rgba(216,180,94,.4))}
+footer .orn{display:flex;align-items:center;justify-content:center;gap:14px;margin:4px auto 14px;max-width:260px;color:var(--gold)}
+footer .orn i{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(216,180,94,.8))}
+footer .orn i:last-child{transform:scaleX(-1)}
+footer .orn span{font-size:16px}
+footer .by{font-family:'Amiri','Tajawal',serif;font-size:21px;line-height:2.1;color:var(--moon);letter-spacing:.2px}
+footer .by b{font-family:'Tajawal',sans-serif;font-weight:500;font-size:15px;color:var(--gold);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+  padding:1px 12px;border-radius:20px;margin-inline-end:8px;vertical-align:middle}
+
+/* ---------- Footer: original night-purple background (same as the hero) ---------- */
+footer{background:#17112e}
+@media(min-width:761px){footer{background:radial-gradient(circle at 50% 0,#3c2670,#17112e 75%)}}
+
+/* ---------- Back-to-top button ---------- */
+#top{width:52px;height:52px;border:1px solid rgba(255,255,255,.55);
+  background:linear-gradient(145deg,rgba(123,58,134,.94),rgba(196,51,140,.94));
+  -webkit-backdrop-filter:blur(12px) saturate(160%);backdrop-filter:blur(12px) saturate(160%);
+  box-shadow:0 8px 24px rgba(196,51,140,.45),0 0 0 4px rgba(255,255,255,.12),inset 0 1px 0 rgba(255,255,255,.5)}
+#top::before{content:"";position:absolute;inset:-5px;border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 0deg,var(--gold) calc(var(--p,0)*1%),rgba(255,255,255,.22) 0);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px));
+  mask:radial-gradient(farthest-side,transparent calc(100% - 3px),#000 calc(100% - 2.5px))}
+#top svg{width:24px;height:24px;stroke:#fff;stroke-width:2.6;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35));transition:transform .3s}
+#top:hover{background:linear-gradient(145deg,rgba(216,180,94,.95),rgba(190,150,60,.95));box-shadow:0 12px 28px rgba(216,180,94,.5),0 0 0 4px rgba(255,255,255,.18),inset 0 1px 0 rgba(255,255,255,.6)}
+#top:hover svg{transform:translateY(-2px)}
+#top:active{transform:scale(.94)}
+#top:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+
+/* ---------- Verse box + credits: back to the original purple-night look ---------- */
+.verse{background:rgba(255,255,255,.06);border:1px solid rgba(226,180,92,.35);
+  box-shadow:0 12px 40px rgba(0,0,0,.35),inset 0 0 30px rgba(226,180,92,.08)}
+.verse:hover{border-color:rgba(226,180,92,.8)}
+.verse em{color:#ff7cc4;text-shadow:0 0 14px rgba(255,124,196,.7)}
+@keyframes pulse{50%{text-shadow:0 0 26px rgba(255,124,196,1)}}
+.credits div{background:rgba(244,234,208,.12);border:1px solid rgba(226,180,92,.25);box-shadow:none}
+.credits b{color:#e2b45c}
+
+/* ---------- Footer: stars + details ---------- */
+footer{position:relative;overflow:hidden}
+footer::before,footer::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:0}
+footer::before{background-image:radial-gradient(1.5px 1.5px at 59% 75%,#fff,transparent),radial-gradient(1px 1px at 59% 69%,#fff,transparent),radial-gradient(1.5px 1.5px at 25% 69%,#fff,transparent),radial-gradient(1px 1px at 82% 82%,#fff,transparent),radial-gradient(1.2px 1.2px at 14% 61%,#fff,transparent),radial-gradient(1px 1px at 20% 15%,#fff,transparent),radial-gradient(1.5px 1.5px at 78% 54%,#fff,transparent),radial-gradient(1px 1px at 85% 82%,#fff,transparent),radial-gradient(1px 1px at 81% 5%,#fff,transparent),radial-gradient(1px 1px at 9% 8%,#fff,transparent),radial-gradient(1px 1px at 32% 80%,#fff,transparent),radial-gradient(1.5px 1.5px at 61% 45%,#fff,transparent),radial-gradient(1px 1px at 77% 29%,#fff,transparent),radial-gradient(1.5px 1.5px at 83% 41%,#fff,transparent),radial-gradient(1px 1px at 2% 88%,#fff,transparent),radial-gradient(1.2px 1.2px at 60% 87%,#fff,transparent),radial-gradient(1px 1px at 54% 74%,#fff,transparent),radial-gradient(1.2px 1.2px at 92% 36%,#fff,transparent);opacity:.75;animation:twk 4.5s ease-in-out infinite alternate}
+footer::after{background-image:radial-gradient(1px 1px at 39% 14%,#fff,transparent),radial-gradient(1.5px 1.5px at 77% 43%,#fff,transparent),radial-gradient(1.2px 1.2px at 50% 71%,#fff,transparent),radial-gradient(1px 1px at 18% 96%,#fff,transparent),radial-gradient(1px 1px at 36% 60%,#fff,transparent),radial-gradient(1.5px 1.5px at 30% 83%,#fff,transparent),radial-gradient(1px 1px at 5% 17%,#fff,transparent),radial-gradient(1.5px 1.5px at 92% 67%,#fff,transparent),radial-gradient(1.5px 1.5px at 4% 69%,#fff,transparent),radial-gradient(1px 1px at 47% 11%,#fff,transparent),radial-gradient(1.2px 1.2px at 6% 79%,#fff,transparent),radial-gradient(1px 1px at 86% 26%,#fff,transparent),radial-gradient(1.2px 1.2px at 96% 50%,#fff,transparent),radial-gradient(1.2px 1.2px at 75% 40%,#fff,transparent),radial-gradient(1.5px 1.5px at 75% 14%,#fff,transparent),radial-gradient(1.5px 1.5px at 24% 95%,#fff,transparent);opacity:.5;animation:twk 6.5s ease-in-out -2s infinite alternate}
+@keyframes twk{from{opacity:.25}to{opacity:.95}}
+footer>div{position:relative;z-index:1}
+footer .sp{position:absolute;z-index:0;pointer-events:none;color:var(--gold);text-shadow:0 0 10px rgba(226,180,92,.8);animation:spk 3.8s ease-in-out infinite}
+footer .s1{top:14%;right:9%;font-size:16px}
+footer .s2{top:62%;right:20%;font-size:10px;color:#ff9bd2;text-shadow:0 0 10px rgba(255,124,196,.8);animation-delay:-1s}
+footer .s3{top:20%;left:12%;font-size:13px;animation-delay:-2s}
+footer .s4{top:70%;left:26%;font-size:18px;color:#fff;text-shadow:0 0 12px rgba(255,255,255,.8);animation-delay:-.6s}
+footer .s5{top:40%;left:5%;font-size:9px;animation-delay:-1.6s}
+footer .s6{top:12%;left:42%;font-size:9px;color:#ff9bd2;text-shadow:0 0 10px rgba(255,124,196,.8);animation-delay:-2.6s}
+footer .s7{top:78%;right:6%;font-size:12px;animation-delay:-3s}
+@keyframes spk{0%,100%{opacity:.35;transform:scale(.7) rotate(0)}50%{opacity:1;transform:scale(1.15) rotate(25deg)}}
+footer .shoot{position:absolute;z-index:0;top:10%;right:-120px;width:110px;height:2px;border-radius:2px;pointer-events:none;opacity:0;
+  background:linear-gradient(90deg,rgba(255,255,255,.95),transparent);transform:rotate(-155deg);animation:shoot 9s ease-in 2s infinite}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0) rotate(-155deg)}4%{opacity:1}14%{opacity:0;transform:translate(-520px,-190px) rotate(-155deg)}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){footer::before,footer::after,footer .sp,footer .shoot{animation:none}footer .shoot{display:none}}
+
+/* ---------- Back-to-top: crisp SVG ring so the circle is perfectly round ---------- */
+#top::before{display:none}
+#top{border-radius:50%;aspect-ratio:1/1;padding:0;box-sizing:border-box}
+#top .ring{position:absolute;left:-5px;top:-5px;width:60px;height:60px;pointer-events:none;overflow:visible;filter:none;transition:none}
+#top .ring circle{fill:none;stroke-width:3}
+#top .ring .trk{stroke:rgba(255,255,255,.25)}
+#top .ring .prg{stroke:var(--gold);stroke-dasharray:0 100;transition:stroke-dasharray .15s linear}
+#top:hover .ring{transform:none}
+
+/* ---------- Click a card to focus on it ---------- */
+.card{cursor:zoom-in}
+.card:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.card.ghost{visibility:hidden}
+.fc-ov{position:fixed;inset:0;z-index:120;background:rgba(15,10,35,.52);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);opacity:0;transition:opacity .35s}
+.fc-ov.on{opacity:1}
+.fc{position:absolute;inset:0;display:grid;place-items:center;padding:60px 14px 56px;pointer-events:none}
+.card.zoomed{pointer-events:auto;cursor:default;opacity:1;transform:none;margin:0;width:min(100%,820px);max-height:100%;overflow:auto;
+  font-size:20px;line-height:2;padding:30px 32px;
+  background:linear-gradient(135deg,rgba(255,255,255,.88),rgba(255,255,255,.68));
+  box-shadow:0 30px 80px rgba(0,0,0,.45),inset 0 1px 0 #fff}
+.card.zoomed.alt{border-top-color:rgba(216,180,94,.95)}
+.card.zoomed h2{font-size:clamp(24px,5vw,34px)}
+.card.zoomed h2::after{width:100%}
+.card.zoomed::after{display:none}
+.card.zoomed.ctr{text-align:center}
+.card.zoomed.ctr ul{display:inline-block;text-align:right}
+.fc-x{position:absolute;top:14px;left:14px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.6);cursor:pointer;
+  background:rgba(255,255,255,.18);color:#fff;font-size:28px;line-height:1;display:grid;place-items:center;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 6px 18px rgba(0,0,0,.3);transition:background .25s,transform .25s}
+.fc-x:hover{background:rgba(216,180,94,.85);transform:rotate(90deg)}
+.fc-hint{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-size:14px;color:#f4ead0;padding:3px 16px;border-radius:20px;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);white-space:nowrap;pointer-events:none}
+@media(max-width:760px){.card.zoomed{padding:22px 18px;font-size:18px}.fc-hint{font-size:12px}}
+
+/* ---------- I'rab grid ---------- */
+.vocab.irab{grid-template-columns:repeat(auto-fill,minmax(min(250px,100%),1fr))}
+.irab div{font-size:17.5px}
 </style>
 </head>
 <body>
 <div id="bar" aria-hidden="true"></div>
-<button id="top" aria-label="العودة للأعلى" title="العودة للأعلى"><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
+<button id="top" aria-label="العودة للأعلى" title="العودة للأعلى"><svg class="ring" viewBox="0 0 60 60" aria-hidden="true"><circle class="trk" cx="30" cy="30" r="28"/><circle class="prg" cx="30" cy="30" r="28" pathLength="100" transform="rotate(-90 30 30)"/></svg><svg viewBox="0 0 24 24"><path d="M6 15l6-6 6 6"/></svg></button>
 
 <header class="hero">
   <canvas id="stars" aria-hidden="true"></canvas>
@@ -238,9 +416,42 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
   </section>
 
   <section class="step">
+    <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9 M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></div>
+    <div class="card">
+      <h2>رابعًا: إعراب البيت</h2>
+      <div class="sim">
+        <h3>الشطر الأول: «أَنامُ مِلءَ جُفوني عَن شَوارِدِها»</h3>
+        <div class="vocab irab">
+          <div><b>أَنامُ</b>فعل مضارع مرفوع، والفاعل ضمير مستتر تقديره (أنا).</div>
+          <div><b>مِلءَ</b>نائب عن المفعول المطلق (أو حال) منصوب وعلامة نصبه الفتحة، وهو مضاف.</div>
+          <div><b>جُفوني</b>مضاف إليه مجرور وعلامة جره الكسرة المقدرة، والياء ضمير مبني في محل جر مضاف إليه.</div>
+          <div><b>عَن</b>حرف جر مبني على السكون.</div>
+          <div><b>شَوارِدِها</b>اسم مجرور بـ (عن) وعلامة جره الكسرة، والهاء ضمير في محل جر مضاف إليه، والجار والمجرور متعلقان بالفعل (أنام).</div>
+        </div>
+      </div>
+      <div class="sim">
+        <h3>الشطر الثاني: «وَيَسهَرُ الخَلقُ جَرّاها وَيَختَصِمُ»</h3>
+        <div class="vocab irab">
+          <div><b>وَيَسهَرُ</b>الواو حرف عطف، و(يسهرُ) فعل مضارع مرفوع وعلامة رفعه الضمة.</div>
+          <div><b>الخَلقُ</b>فاعل مرفوع وعلامة رفعه الضمة الظاهرة.</div>
+          <div><b>جَرّاها</b>مفعول لأجله منصوب وعلامة نصبه الفتحة المقدرة (بمعنى: بسببها)، والهاء ضمير في محل جر مضاف إليه.</div>
+          <div><b>وَيَختَصِمُ</b>الواو حرف عطف، و(يختصمُ) فعل مضارع مرفوع والفاعل ضمير مستتر تقديره (هو).</div>
+        </div>
+      </div>
+      <div class="sim">
+        <h3>إعراب الجمل</h3>
+        <ul>
+          <li><span class="tag">جملة «أَنامُ مِلءَ جُفوني»</span> ابتدائية لا محل لها من الإعراب.</li>
+          <li><span class="tag">جملة «يَسهَرُ الخَلقُ» / «يَختَصِمُ»</span> معطوفة لا محل لها من الإعراب.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="step">
     <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
     <div class="card">
-      <h2>رابعًا: الصور الجمالية والبلاغية</h2>
+      <h2>خامسًا: الصور الجمالية والبلاغية</h2>
       <div class="sim">
         <h3>«أَنامُ مِلءَ جُفوني»</h3>
         <p>كناية عن راحة البال والاطمئنان والثقة بالنفس.</p>
@@ -259,7 +470,7 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
   <section class="step">
     <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></div>
     <div class="card">
-      <h2>خامسًا: المحسنات البديعية</h2>
+      <h2>سادسًا: المحسنات البديعية</h2>
       <p><span class="tag">الطباق الإيجابي</span> بين «أَنامُ» و«يَسهَرُ».</p>
       <p>جمع الشاعر بين كلمتين متضادتين؛ لإبراز المفارقة بين حاله المطمئنة وحال الناس المنشغلين بشعره.</p>
     </div>
@@ -268,7 +479,7 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
   <section class="step">
     <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1-4L16.5 4.5a2 2 0 0 1 3 3L8 19z M14 7l3 3"/></svg></div>
     <div class="card">
-      <h2>سادسًا: الأساليب اللغوية</h2>
+      <h2>سابعًا: الأساليب اللغوية</h2>
       <ul>
         <li><span class="tag">«أَنامُ»</span> أسلوب خبري يفيد الإخبار عن حال الشاعر.</li>
         <li><span class="tag">«وَيَسهَرُ الخَلقُ جَرّاها وَيَختَصِمُ»</span> أسلوب خبري يصوّر أثر شعره في الناس.</li>
@@ -280,7 +491,7 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
   <section class="step">
     <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5C5 16 2.5 12.5 2.5 9A4.5 4.5 0 0 1 12 6.8 4.5 4.5 0 0 1 21.5 9c0 3.5-2.5 7-9.5 11.5z"/></svg></div>
     <div class="card">
-      <h2>سابعًا: العاطفة المسيطرة</h2>
+      <h2>ثامنًا: العاطفة المسيطرة</h2>
       <p>الفخر والاعتزاز بالنفس والثقة بالموهبة الشعرية، مع الإعجاب بتميز شعره وعمق معانيه.</p>
     </div>
   </section>
@@ -288,7 +499,7 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
   <section class="step">
     <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6 M10 21h4 M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></div>
     <div class="card">
-      <h2>ثامنًا: القيم والدروس المستفادة</h2>
+      <h2>تاسعًا: القيم والدروس المستفادة</h2>
       <ul>
         <li>الثقة بالنفس والاعتزاز بالقدرات والمواهب.</li>
         <li>أهمية الإبداع والتميز في الأدب.</li>
@@ -301,7 +512,7 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
   <section class="step">
     <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg></div>
     <div class="card">
-      <h2>تاسعًا: خلاصة سريعة</h2>
+      <h2>عاشرًا: خلاصة سريعة</h2>
       <ul class="sum">
         <li><span class="tag">الفكرة</span> يفتخر المتنبي بتميز شعره وعمق معانيه التي تشغل الناس وتدفعهم إلى التفكير والنقاش.</li>
         <li><span class="tag">الصورة الجمالية</span> كناية «أنام ملء جفوني» عن راحة البال والثقة بالنفس.</li>
@@ -314,7 +525,7 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
   <section class="step full">
     <div class="node"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7 M12 17h.01"/></svg></div>
     <div class="card">
-      <h2>عاشرًا: أسئلة المناقشة</h2>
+      <h2>الحادي عشر: أسئلة المناقشة</h2>
       <div class="qa">
         <div><b>1. بِمَ يفتخر المتنبي في البيت؟</b>يفتخر بتميز شعره وعمق معانيه، وانشغال الناس بمحاولة فهمها وتفسيرها.</div>
         <div><b>2. لماذا جمع الشاعر بين النوم والسهر؟</b>ليبرز المفارقة بين راحته واطمئنانه إلى شعره، وبين سهر الناس في معانيه ومحاولتهم فهمها.</div>
@@ -329,9 +540,11 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
 </main>
 
 <footer>
+  <span class="sp s1" aria-hidden="true">✦</span><span class="sp s2" aria-hidden="true">✦</span><span class="sp s3" aria-hidden="true">✦</span><span class="sp s4" aria-hidden="true">✦</span><span class="sp s5" aria-hidden="true">✦</span><span class="sp s6" aria-hidden="true">✦</span><span class="sp s7" aria-hidden="true">✦</span><i class="shoot" aria-hidden="true"></i>
   <div class="big">شكرًا لحسن استماعكم</div>
-  إعداد: أنس نهاد محمود الجعل<br>
-  بإشراف: أ. حُسُن خليل أحمد شلش
+  <div class="orn" aria-hidden="true"><i></i><span>✦</span><i></i></div>
+  <div class="by"><b>إعداد</b> أنس نهاد محمود الجعل</div>
+  <div class="by"><b>بإشراف</b> أ. حُسُن خليل أحمد شلش</div>
 </footer>
 
 <script>
@@ -361,20 +574,45 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
       }
     }catch(err){}
   }
+  var lastD=-1,lastT=0;
+  var DIG={'٠':0,'١':1,'٢':2,'٣':3,'٤':4,'٥':5,'٦':6,'٧':7,'٨':8,'٩':9,'۰':0,'۱':1,'۲':2,'۳':3,'۴':4,'۵':5,'۶':6,'۷':7,'۸':8,'۹':9};
+  function digitOf(e){
+    var m=/^(?:Digit|Numpad)(\d)$/.exec(e.code||'');
+    if(m){return +m[1];}
+    if(/^\d$/.test(e.key)){return +e.key;}
+    if(DIG.hasOwnProperty(e.key)){return DIG[e.key];}
+    return null;
+  }
+  function jumpTo(n){
+    var s=steps[n-1];
+    if(!s){return;}
+    var y=s.getBoundingClientRect().top+(window.pageYOffset||document.documentElement.scrollTop);
+    window.scrollTo({top:Math.max(0,y),behavior:'smooth'});
+  }
   document.addEventListener('keydown',function(e){
     if(e.ctrlKey||e.metaKey||e.altKey){return;}
-    if(e.key==='f'||e.key==='F'||e.key==='ب'){toggleFS();}
+    var t=e.target,tag=t&&t.tagName;
+    if(tag==='INPUT'||tag==='TEXTAREA'||tag==='SELECT'||(t&&t.isContentEditable)){return;}
+    if(e.key==='f'||e.key==='F'||e.key==='ب'){toggleFS();return;}
+    var d=digitOf(e);
+    if(d!==null&&!e.repeat){
+      e.preventDefault();
+      var now=Date.now(),n=d===0?10:d;
+      if(lastD===1&&now-lastT<700&&(d===0||d===1)){n=10+d;}
+      lastD=d;lastT=now;
+      jumpTo(n);
+    }
   });
 })();
 </script>
 <script>
 (function(){
   var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,mobile=matchMedia('(max-width:760px)').matches;
-  var bar=document.getElementById('bar'),top=document.getElementById('top');
+  var bar=document.getElementById('bar'),top=document.getElementById('top'),prg=document.querySelector('#top .prg');
   function prog(){
     var h=document.documentElement.scrollHeight-innerHeight,y=scrollY||document.documentElement.scrollTop;
     bar.style.width=(h>0?y/h*100:0)+'%';
-    top.classList.toggle('show',y>500);
+    top.classList.toggle('show',y>500);if(prg){prg.style.strokeDasharray=(h>0?Math.min(100,y/h*100):0).toFixed(1)+' 100';}
   }
   addEventListener('scroll',prog,{passive:true});prog();
   top.addEventListener('click',function(){scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
@@ -432,6 +670,76 @@ footer .big{filter:drop-shadow(0 0 14px rgba(226,180,92,.45))}
       }).observe(cv.parentNode);
     }
   }
+})();
+</script>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,
+      root=document.documentElement,open=null;
+  [].slice.call(document.querySelectorAll('.card')).forEach(function(c){c.tabIndex=0;});
+  function geo(a,b){
+    return {dx:(a.left+a.width/2)-(b.left+b.width/2),dy:(a.top+a.height/2)-(b.top+b.height/2),s:a.width/b.width};
+  }
+  function openCard(card){
+    if(open){return;}
+    var first=card.getBoundingClientRect();
+    var ov=document.createElement('div');ov.className='fc-ov';
+    var fc=document.createElement('div');fc.className='fc';
+    var clone=card.cloneNode(true);
+    clone.removeAttribute('tabindex');clone.classList.add('zoomed');
+    if(card.closest('.full')){clone.classList.add('ctr');}
+    var st=card.closest('.step');
+    if(st&&st.matches(':nth-child(even)')){clone.classList.add('alt');}
+    var x=document.createElement('button');x.type='button';x.className='fc-x';x.setAttribute('aria-label','إغلاق');x.innerHTML='&times;';
+    fc.appendChild(clone);ov.appendChild(fc);ov.appendChild(x);
+    document.body.appendChild(ov);
+    var w=window.innerWidth-root.clientWidth;
+    root.style.overflow='hidden';if(w>0){root.style.paddingRight=w+'px';}
+    card.classList.add('ghost');
+    open={card:card,ov:ov,clone:clone};
+    if(reduce){ov.classList.add('on');return;}
+    var g=geo(first,clone.getBoundingClientRect());
+    clone.style.transition='none';
+    clone.style.transform='translate('+g.dx+'px,'+g.dy+'px) scale('+g.s+')';
+    clone.getBoundingClientRect();
+    ov.classList.add('on');
+    clone.style.transition='transform .45s cubic-bezier(.2,.8,.2,1)';
+    clone.style.transform='none';
+  }
+  function closeCard(instant){
+    if(!open){return;}
+    var o=open;open=null;
+    root.style.overflow='';root.style.paddingRight='';
+    function done(){o.ov.remove();o.card.classList.remove('ghost');}
+    if(instant||reduce){done();return;}
+    var g=geo(o.card.getBoundingClientRect(),o.clone.getBoundingClientRect());
+    o.ov.classList.remove('on');
+    o.clone.style.transition='transform .35s cubic-bezier(.4,0,.2,1)';
+    o.clone.style.transform='translate('+g.dx+'px,'+g.dy+'px) scale('+g.s+')';
+    setTimeout(done,370);
+  }
+  document.addEventListener('click',function(e){
+    var t=e.target;
+    if(open){
+      if(!t.closest('.zoomed')){closeCard();}
+      return;
+    }
+    var card=t.closest&&t.closest('.card');
+    if(!card){return;}
+    var sel=window.getSelection&&window.getSelection().toString();
+    if(sel){return;}
+    openCard(card);
+  });
+  document.addEventListener('keydown',function(e){
+    if(open){
+      if(e.key==='Escape'){e.preventDefault();closeCard();return;}
+      if(/^(Digit|Numpad)\d$/.test(e.code||'')){closeCard(true);}
+      return;
+    }
+    if(e.key==='Enter'&&document.activeElement&&document.activeElement.classList.contains('card')){
+      e.preventDefault();openCard(document.activeElement);
+    }
+  },true);
 })();
 </script>
 </body>
